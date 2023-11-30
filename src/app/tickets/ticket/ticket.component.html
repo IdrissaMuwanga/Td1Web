@@ -1,0 +1,24 @@
+<div class="card ticket" (click)="selectTicket()">
+  <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->
+  <h3> Titre: {{ticket.title}}</h3>
+  <h3>Major : {{ticket.major}}</h3>
+  <h3>student: {{ticket.student?.prenom| uppercase}} {{ticket.student?.nom }}</h3>  
+  <h3>description : {{ticket.description}}</h3>
+
+
+  <i class="fa-solid fa-calendar"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
+  <i class="far fa-user"></i> Auteur {{ticket.author}}
+  <i class="far fa-user"></i> 
+  <i class="fa-solid fa-droplet"></i>
+
+<!--bouton supprimer-->
+<!-- <td><button type="button" (click)='deleteTicket()'>Supprimer</button></td> -->
+<td>
+  <button type="button" (click)="archiveTicket()">
+    <span *ngIf="!ticket.archived">Archiver?</span>
+    <span *ngIf="ticket.archived">Archivé</span>
+  </button>
+</td>
+</div>
+
+
